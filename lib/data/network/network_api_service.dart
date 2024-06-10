@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 class NetworkApiService extends BaseApiService {
   @override
-  Future getResponse(String url) async {
+  Future getApi(String url) async {
     dynamic responseJson;
     try {
       final response = await http.get(Uri.parse(url)).timeout(const Duration(seconds: 10));
@@ -19,7 +19,7 @@ class NetworkApiService extends BaseApiService {
   }
 
   @override
-  Future postResponse(data, String url) async {
+  Future postApi(data, String url) async {
     dynamic responseJson;
     try {
       final response = await http

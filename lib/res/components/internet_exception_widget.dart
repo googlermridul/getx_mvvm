@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:getx_mvvm/res/colors/app_colors.dart';
-import 'package:getx_mvvm/view/widgets/app_button.dart';
+import 'package:getx_mvvm/res/components/app_button.dart';
 
 class InternetExceptionWidget extends StatefulWidget {
   const InternetExceptionWidget({super.key});
