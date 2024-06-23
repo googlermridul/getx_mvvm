@@ -66,18 +66,15 @@ GetX is a powerful Flutter package that simplifies state management, dependency 
 
 ## Project Structure
 
-```bash
 lib
 ├── main.dart
 ├── data
-│   ├── models
-│   └── repositories
+│ ├── models
+│ └── repositories
 ├── ui
-│   ├── views
-│   └── widgets
+│ ├── views
+│ └── widgets
 ├── viewmodels
 └── services
-
-```
 
 <img src="https://miro.medium.com/v2/resize:fit:1400/1*JWU0EHf4yRF2_bM_Hk07zQ.jpeg" alt="getx mvvm" border="0">
