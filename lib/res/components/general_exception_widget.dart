@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
 import 'package:getx_mvvm/res/colors/app_colors.dart';
 import 'package:getx_mvvm/res/components/app_button.dart';
 
-class InternetExceptionWidget extends StatelessWidget {
-  const InternetExceptionWidget({super.key, required this.onPress});
+class GeneralExceptionWidget extends StatelessWidget {
+  const GeneralExceptionWidget({super.key, required this.onPress, required this.title});
 
+  final String title;
   final VoidCallback onPress;
 
   @override
@@ -24,7 +24,7 @@ class InternetExceptionWidget extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Text(
-            'internet_exception'.tr,
+            title,
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 20),

@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_mvvm/res/components/app_button.dart';
 import 'package:getx_mvvm/utils/utils.dart';
-import 'package:getx_mvvm/view_models/controller/login_view_model.dart';
+import 'package:getx_mvvm/view_models/controller/login/login_controller.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginViewState extends State<LoginView> {
-  final loginMV = Get.put(LoginViewModel());
+class _LoginScreenState extends State<LoginScreen> {
+  final loginMV = Get.put(LoginController());
   final _formkey = GlobalKey<FormState>();
 
   @override
@@ -31,7 +31,7 @@ class _LoginViewState extends State<LoginView> {
                 focusNode: loginMV.emailFocusNode,
                 validator: (value) {
                   if (value!.isEmpty) {
-                    Utils.snackBar("title", "enter email");
+                    return 'Please enter your email';
                   }
                   return null;
                 },
@@ -48,18 +48,24 @@ class _LoginViewState extends State<LoginView> {
                 focusNode: loginMV.passwordFocusNode,
                 validator: (value) {
                   if (value!.isEmpty) {
-                    Utils.snackBar("title", "enter password");
+                    return 'Please enter your password';
                   }
                   return null;
                 },
                 decoration: InputDecoration(hintText: "Password"),
               ),
               const SizedBox(height: 20),
-              AppButton(
+              Obx(
+                () => AppButton(
                   title: "Sign In",
+                  isLoading: loginMV.loading.value,
                   onPress: () {
-                    if (_formkey.currentState!.validate()) {}
-                  })
+                    if (_formkey.currentState!.validate()) {
+                      loginMV.loginApi();
+                    }
+                  },
+                ),
+              )
             ],
           ),
         ),
